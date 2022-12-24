@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 2021 The Android Open Source Project.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/margin"
+    tools:context=".ItemListFragment">
+
+    <TextView
+        android:id="@+id/your_food"
+        style="@style/Widget.Inventory.ListItemTextView"
+        android:layout_marginStart="@dimen/margin_between_elements"
+        android:text="@string/your_food"
+        app:layout_constraintEnd_toStartOf="@+id/food_weight"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/food_weight"
+        style="@style/Widget.Inventory.ListItemTextView"
+        android:layout_marginStart="@dimen/margin_between_elements"
+        android:text="@string/food_weight"
+        app:layout_constraintStart_toEndOf="@+id/your_food"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/carbs_100_grams"
+        app:layout_constraintHorizontal_weight="1"/>
+
+    <TextView
+        android:id="@+id/carbs_100_grams"
+        style="@style/Widget.Inventory.ListItemTextView"
+        android:layout_below="@+id/your_food"
+        android:layout_marginStart="@dimen/margin_between_elements"
+        android:text="@string/carbs_100gr"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/food_weight"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/carbs"
+        app:layout_constraintHorizontal_weight="1"
+         />
+
+    <TextView
+        android:id="@+id/carbs"
+        style="@style/Widget.Inventory.ListItemTextView"
+        android:layout_below="@+id/your_food"
+        android:layout_marginStart="@dimen/margin_between_elements"
+        android:text="@string/carbs"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/carbs_100_grams"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/glycemic_index"
+        app:layout_constraintHorizontal_weight="1"
+         />
+
+    <TextView
+        android:id="@+id/glycemic_index"
+        style="@style/Widget.Inventory.ListItemTextView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/margin_between_elements"
+        android:text="@string/glycemic_index"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/glycemic_load"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/carbs"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/glycemic_load"
+        style="@style/Widget.Inventory.ListItemTextView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/margin_between_elements"
+        android:text="@string/glycemic_load"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/glycemic_index"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider"
+        style="@style/Divider"
+        android:layout_marginTop="@dimen/margin_between_elements"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/glycemic_index" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_between_elements"
+        android:layout_marginBottom="@dimen/margin_between_elements"
+        android:contentDescription="@string/add_new_item"
+        android:src="@android:drawable/ic_input_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@android:color/white" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
